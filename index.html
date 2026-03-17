@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cash Exchange 💸</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>💸 Cash Exchange</h1>
+  <p class="subtitle">Safe • Verified • Doorstep</p>
+
+  <!-- OTP -->
+  <div class="section">
+    <h3>📱 Phone Verification *</h3>
+
+    <input type="tel" id="phone" placeholder="Phone Number *">
+    <div id="recaptcha-container"></div>
+
+    <button class="secondary" onclick="sendOTP()">Send OTP</button>
+
+    <input type="text" id="otp" placeholder="Enter OTP *">
+    <button class="secondary" onclick="verifyOTP()">Verify OTP</button>
+  </div>
+
+  <!-- Personal -->
+  <div class="section">
+    <h3>👤 Personal Details</h3>
+
+    <input type="text" id="name" placeholder="Full Name *">
+    <input type="text" id="upi" placeholder="UPI ID *">
+    <input type="text" id="account" placeholder="Account Number (optional)">
+  </div>
+
+  <!-- Exchange -->
+  <div class="section">
+    <h3>💱 Exchange Details</h3>
+
+    <select id="exchangeType">
+      <option value="">Exchange Type *</option>
+      <option value="cash">I need CASH (will pay online)</option>
+      <option value="online">I need ONLINE (will give cash)</option>
+    </select>
+
+    <!-- NEW: Instant or Scheduled -->
+    <select id="requestType">
+      <option value="">Request Type *</option>
+      <option value="instant">Instant (Now)</option>
+      <option value="scheduled">Schedule for later</option>
+    </select>
+
+    <input type="number" id="amount" placeholder="Amount (INR) *">
+
+    <input type="date" id="date">
+  </div>
+
+  <button class="primary" onclick="sendRequest()">Submit Request 🚀</button>
+
+  <p id="response"></p>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
